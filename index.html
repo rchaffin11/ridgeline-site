@@ -528,19 +528,8 @@
           <h3>Or send us a note.</h3>
           <p>Prefer email? Tell us what's going on. We'll follow up within one business day.</p>
         </div>
-        <div class="form-success" id="form-success">
-          Thank you. We'll be in touch within one business day.
-        </div>
-        <form name="contact" method="POST" data-netlify="true" id="contact-form">
-          <input type="hidden" name="form-name" value="contact">
-          <div class="form-row">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Email address" required>
-          </div>
-          <input type="text" name="company" placeholder="Company name">
-          <textarea name="message" placeholder="What's the gap you're trying to close?" required></textarea>
-          <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send Message</button>
-        </form>
+        <script src="https://js-na2.hsforms.net/forms/embed/245729778.js" defer></script>
+        <div class="hs-form-frame" data-region="na2" data-form-id="5bc03985-f180-42c4-b38e-6c73af5ca26f" data-portal-id="245729778"></div>
       </div>
 
     </div>
@@ -587,25 +576,7 @@
     if (heroEl) heroEl.classList.add('visible');
   }, 80);
 
-  const form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(data).toString()
-        });
-        form.style.display = 'none';
-        const success = document.getElementById('form-success');
-        if (success) success.style.display = 'block';
-      } catch {
-        form.submit();
-      }
-    });
-  }
+
 </script>
 </body>
 </html>

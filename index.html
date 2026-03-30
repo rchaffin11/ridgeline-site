@@ -520,7 +520,6 @@
         <div class="calendly-inline-widget" data-url="https://calendly.com/robert-ridgelinefirm/30min" style="min-width:320px;height:700px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         <!-- Calendly inline widget end -->
-
       </div>
 
       <div class="cta-form fade-up" id="get-in-touch">
@@ -546,7 +545,7 @@
       </div>
       <div class="footer-right">
         <p>Eagle Mountain, Utah</p>
-        <p><a href="/cdn-cgi/l/email-protection#6f070a0303002f1d060b080a0306010a09061d02410c0002"><span class="__cf_email__" data-cfemail="8ce4e9e0e0e3ccfee5e8ebe9e0e5e2e9eae5fee1a2efe3e1">[email&#160;protected]</span></a></p>
+        <p><a href="mailto:hello@ridgelinefirm.com">hello@ridgelinefirm.com</a></p>
         <p><a href="tel:+10000000000">+1 (000) 000-0000</a></p>
         <p>&copy; 2026 Ridgeline Firm LLC</p>
       </div>
@@ -554,7 +553,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 30);
@@ -568,3 +567,15 @@
       }
     });
   }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+  setTimeout(() => {
+    const heroEl = document.querySelector('#hero .fade-up');
+    if (heroEl) heroEl.classList.add('visible');
+  }, 80);
+
+
+</script>
+</body>
+</html>

@@ -401,7 +401,7 @@
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">Ridgeline<span>.</span>Firm</a>
-  <a href="#contact" class="btn btn-primary">Book a Call</a>
+  <a href="#schedule" class="btn btn-primary">Book a Call</a>
 </nav>
 
 <!-- HERO -->
@@ -419,7 +419,7 @@
       <p class="hero-sub">Ridgeline Firm bridges the gap between C-suite leadership and development teams at growth-stage tech companies. We speak both languages, hold the roadmap accountable, and make sure strategy actually ships.</p>
       <div class="hero-ctas">
         <a href="https://calendly.com/robert-ridgelinefirm/30min" target="_blank" class="btn btn-primary">Book a 30-Minute Call</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        <a href="#get-in-touch" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
   </div>
@@ -513,7 +513,7 @@
     <h2 class="fade-up">Ready to close the gap?</h2>
     <div class="cta-grid">
 
-      <div class="cta-book fade-up">
+      <div class="cta-book fade-up" id="schedule">
         <h3>Book a 30-minute call.</h3>
         <p>No pitch deck. No hard close. Just a direct conversation about where the gap is and whether we're the right fit to close it.</p>
         <!-- Calendly inline widget begin -->
@@ -523,7 +523,7 @@
 
       </div>
 
-      <div class="cta-form fade-up">
+      <div class="cta-form fade-up" id="get-in-touch">
         <div class="form-head">
           <h3>Or send us a note.</h3>
           <p>Prefer email? Tell us what's going on. We'll follow up within one business day.</p>
@@ -546,7 +546,7 @@
       </div>
       <div class="footer-right">
         <p>Eagle Mountain, Utah</p>
-        <p><a href="mailto:hello@ridgelinefirm.com">hello@ridgelinefirm.com</a></p>
+        <p><a href="/cdn-cgi/l/email-protection#6f070a0303002f1d060b080a0306010a09061d02410c0002"><span class="__cf_email__" data-cfemail="8ce4e9e0e0e3ccfee5e8ebe9e0e5e2e9eae5fee1a2efe3e1">[email&#160;protected]</span></a></p>
         <p><a href="tel:+10000000000">+1 (000) 000-0000</a></p>
         <p>&copy; 2026 Ridgeline Firm LLC</p>
       </div>
@@ -554,7 +554,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 30);
@@ -568,15 +568,3 @@
       }
     });
   }, { threshold: 0.12 });
-
-  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
-
-  setTimeout(() => {
-    const heroEl = document.querySelector('#hero .fade-up');
-    if (heroEl) heroEl.classList.add('visible');
-  }, 80);
-
-
-</script>
-</body>
-</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ridgeline Firm — We figure it out.</title>
+  <meta name="description" content="Ridgeline Firm bridges the gap between C-suite leadership and development teams at growth-stage tech companies.">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:  #1A2445;
+      --sky:   #5B9BD5;
+      --green: #2C5F2D;
+      --warm:  #FFFBF0;
+      --black: #111111;
+      --muted: rgba(255,251,240,0.55);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--warm);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(26,36,69,0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      color: var(--warm);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-brand svg { width: 26px; height: 26px; }
+
+    .nav-cta {
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      border: 1px solid rgba(255,251,240,0.3);
+      padding: 9px 22px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--sky); border-color: var(--sky); }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 110%, rgba(91,155,213,0.13) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 15% 15%, rgba(44,95,45,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 780px; }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 24px;
+      animation: rise 0.9s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      color: var(--warm);
+      line-height: 1.15;
+      margin-bottom: 28px;
+      animation: rise 0.9s 0.1s ease both;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--sky); }
+
+    .hero-body {
+      font-size: clamp(0.98rem, 2vw, 1.08rem);
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 48px;
+      animation: rise 0.9s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: rise 0.9s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--sky);
+      color: var(--warm);
+      font-size: 0.83rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 15px 36px;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: #4a8bc4; transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--warm);
+      font-size: 0.83rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 15px 36px;
+      border: 1px solid rgba(255,251,240,0.3);
+      display: inline-block;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: var(--warm); background: rgba(255,251,240,0.06); }
+
+    /* SECTIONS */
+    .section { padding: 100px 24px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 16px;
+    }
+
+    .section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    /* WHAT WE DO */
+    .what { background: var(--navy); }
+    .what h2 { color: var(--warm); }
+    .what .lead { color: var(--muted); max-width: 680px; margin-bottom: 14px; line-height: 1.8; }
+    .what .body { color: var(--muted); max-width: 680px; margin-bottom: 56px; line-height: 1.8; }
+
+    .pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+
+    .pillar {
+      background: rgba(255,251,240,0.04);
+      padding: 40px 32px;
+      border-top: 2px solid var(--sky);
+      transition: background 0.2s;
+    }
+
+    .pillar:hover { background: rgba(91,155,213,0.07); }
+
+    .pillar h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--warm);
+      margin-bottom: 12px;
+    }
+
+    .pillar p { font-size: 0.88rem; color: rgba(255,251,240,0.48); line-height: 1.75; }
+
+    /* WHO WE SERVE */
+    .serve { background: var(--warm); border-top: 1px solid rgba(26,36,69,0.07); }
+    .serve h2 { color: var(--navy); }
+    .serve .lead { color: #444; max-width: 580px; margin-bottom: 52px; }
+
+    .personas { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; }
+
+    .persona {
+      padding: 36px 32px;
+      border-left: 3px solid transparent;
+      background: rgba(26,36,69,0.03);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .persona:hover { border-left-color: var(--sky); background: rgba(91,155,213,0.05); }
+
+    .persona h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .persona p { font-size: 0.88rem; color: #555; line-height: 1.75; }
+
+    /* HOW IT WORKS */
+    .how { background: var(--navy); }
+    .how h2 { color: var(--warm); }
+
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 52px; }
+
+    .step { background: rgba(255,251,240,0.04); padding: 40px 32px; }
+
+    .step-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--sky);
+      opacity: 0.35;
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    .step h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--warm);
+      margin-bottom: 12px;
+    }
+
+    .step p { font-size: 0.88rem; color: rgba(255,251,240,0.48); line-height: 1.75; }
+
+    /* CONTACT */
+    .contact { background: var(--warm); border-top: 1px solid rgba(26,36,69,0.07); }
+    .contact h2 { color: var(--navy); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 52px;
+    }
+
+    .col-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 12px;
+    }
+
+    .contact-col h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.45rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .contact-col p { font-size: 0.92rem; color: #555; margin-bottom: 28px; line-height: 1.75; }
+
+    .calendly-wrap {
+      border: 1px solid rgba(26,36,69,0.10);
+      min-height: 400px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bbb;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    .form-wrap { background: var(--navy); padding: 40px; }
+
+    .form-wrap .hs-form fieldset { max-width: 100% !important; }
+    .form-wrap .hs-form .hs-input {
+      width: 100% !important;
+      background: rgba(255,251,240,0.07) !important;
+      border: 1px solid rgba(255,251,240,0.18) !important;
+      color: var(--warm) !important;
+      padding: 12px 14px !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      border-radius: 0 !important;
+    }
+    .form-wrap .hs-form label {
+      color: rgba(255,251,240,0.55) !important;
+      font-size: 0.7rem !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      font-family: 'DM Sans', sans-serif !important;
+    }
+    .form-wrap .hs-button {
+      background: var(--sky) !important;
+      border: none !important;
+      color: var(--warm) !important;
+      padding: 13px 30px !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      font-size: 0.82rem !important;
+      border-radius: 0 !important;
+      cursor: pointer !important;
+      margin-top: 8px !important;
+      transition: background 0.2s !important;
+    }
+    .form-wrap .hs-button:hover { background: #4a8bc4 !important; }
+
+    /* FOOTER */
+    footer { background: var(--black); padding: 48px 24px; }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-left { display: flex; flex-direction: column; gap: 4px; }
+
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      color: var(--warm);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      opacity: 0.7;
+    }
+
+    .footer-tag { font-style: italic; color: rgba(255,251,240,0.3); font-size: 0.82rem; }
+    .footer-loc { color: rgba(255,251,240,0.22); font-size: 0.78rem; margin-top: 2px; }
+
+    .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+
+    .footer-right a {
+      color: rgba(255,251,240,0.38);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .footer-right a:hover { color: var(--sky); }
+    .footer-copy { color: rgba(255,251,240,0.18); font-size: 0.74rem; margin-top: 4px; }
+
+    /* ANIMATIONS */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      nav { padding: 16px 24px; }
+      .pillars, .steps { grid-template-columns: 1fr; }
+      .personas { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-inner { flex-direction: column; }
+      .footer-right { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="12.8,87.2 50,12.8 87.2,87.2" fill="#111111"/>
+        <polygon points="34.7,44.6 50,14 65.3,44.6" fill="#5B9BD5"/>
+        <polygon points="14,86 30.74,52.52 69.26,52.52 86,86" fill="#2C5F2D"/>
+        <polygon points="34.7,44.6 65.3,44.6 69.26,52.52 30.74,52.52" fill="#FFFBF0"/>
+      </svg>
+      Ridgeline.Firm
+    </a>
+    <a href="#contact" class="nav-cta">Book a Call</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Strategy to Execution</div>
+      <h1>The <em>missing role</em><br>in your org chart.</h1>
+      <p class="hero-body">
+        Ridgeline Firm bridges the gap between C-suite leadership and development teams at growth-stage tech companies. We speak both languages, hold the roadmap accountable, and make sure strategy actually ships.
+      </p>
+      <div class="hero-actions">
+        <!-- Replace YOUR_CALENDLY_LINK with your actual Calendly URL -->
+        <a href="YOUR_CALENDLY_LINK" class="btn-primary">Book a 30-Minute Call</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="section what" id="what">
+    <div class="section-inner">
+      <div class="section-label">What We Do</div>
+      <h2>We figure it out.</h2>
+      <p class="lead">
+        Most growth-stage tech companies have sharp leadership and talented engineers. What's missing is the person in between: someone who speaks both languages, holds the roadmap accountable, and makes sure strategy actually ships.
+      </p>
+      <p class="body">
+        That's not a failure of leadership. That's a missing function. We fill it.<br><br>
+        Ridgeline Firm acts as your neutral liaison: embedded in your process, accountable to results, and fluent in the language of both the boardroom and the sprint backlog.
+      </p>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Alignment</h3>
+          <p>We connect leadership goals to engineering priorities, eliminating the friction that slows down execution and creates costly rework.</p>
+        </div>
+        <div class="pillar">
+          <h3>Accountability</h3>
+          <p>We manage timelines, surface blockers early, and keep both sides informed without the politics or the finger-pointing.</p>
+        </div>
+        <div class="pillar">
+          <h3>Momentum</h3>
+          <p>We're the steady hand that keeps projects moving, even when priorities shift, headcount changes, or the roadmap evolves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE SERVE -->
+  <section class="section serve" id="serve">
+    <div class="section-inner">
+      <div class="section-label">Who We Serve</div>
+      <h2>Growth-stage tech companies<br>where the gap is costing you.</h2>
+      <p class="lead">
+        We work with companies that have strong teams on both sides of the table, and a widening gap in between.
+      </p>
+      <div class="personas">
+        <div class="persona">
+          <h3>CEO / Founder</h3>
+          <p>You've outgrown your ability to stay close to the product. You're making decisions without enough context, and you can feel the execution slipping from the plan.</p>
+        </div>
+        <div class="persona">
+          <h3>CTO / VP Engineering</h3>
+          <p>You're buried in execution with no strategic counterpart. Leadership asks why things are slow. You know why, but no one's listening in the right language.</p>
+        </div>
+        <div class="persona">
+          <h3>VP Product</h3>
+          <p>Your roadmap and the sprint backlog don't match. Priorities shift without warning. Engineering is building the wrong things, and everyone has a different version of the truth.</p>
+        </div>
+        <div class="persona">
+          <h3>Investor / Board</h3>
+          <p>You need visibility into what's actually shipping and confidence that the team isn't just busy: they're building toward the right outcome.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section how" id="how">
+    <div class="section-inner">
+      <div class="section-label">How It Works</div>
+      <h2>Simple to start.<br>Designed to stick.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Discovery Call</h3>
+          <p>30 minutes. We identify the gap, confirm the fit, and scope the engagement. No obligation and no hard sell.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Alignment Sprint</h3>
+          <p>First two weeks. We map your roadmap, meet your team, and establish the operating rhythm that keeps everyone moving in the same direction.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Ongoing Retainer</h3>
+          <p>Monthly engagement. We're embedded in your process, reporting to leadership, and accountable to results, not hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="section-inner">
+      <div class="section-label">Get Started</div>
+      <h2>Ready to close the gap?</h2>
+
+      <div class="contact-grid">
+        <div class="contact-col">
+          <div class="col-label">Schedule a call</div>
+          <h3>Book a 30-minute call.</h3>
+          <p>No pitch deck. No hard close. Just a direct conversation about where the gap is and whether we're the right fit to close it.</p>
+          <!-- ═══════════════════════════════════════
+               CALENDLY EMBED
+               Paste your Calendly inline embed here
+               ═══════════════════════════════════════ -->
+          <div class="calendly-wrap">[ Calendly embed goes here ]</div>
+        </div>
+
+        <div class="contact-col">
+          <div class="col-label">Send a message</div>
+          <h3>Or send us a note.</h3>
+          <p>Prefer to write? Tell us what's going on. We'll follow up within one business day.</p>
+          <!-- ═══════════════════════════════════════
+               HUBSPOT FORM EMBED
+               Paste your HubSpot form embed here
+               ═══════════════════════════════════════ -->
+          <div class="form-wrap">
+            <p style="color:rgba(255,251,240,0.25);font-size:0.8rem;letter-spacing:0.06em;">[ HubSpot form embed goes here ]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">Ridgeline Firm</span>
+        <span class="footer-tag">"We figure it out."</span>
+        <span class="footer-loc">Eagle Mountain, Utah</span>
+      </div>
+      <div class="footer-right">
+        <!-- Replace with your final email and Google Voice number -->
+        <a href="mailto:hello@ridgelinefirm.com">hello@ridgelinefirm.com</a>
+        <a href="tel:+10000000000">+1 (000) 000-0000</a>
+        <span class="footer-copy">&copy; 2026 Ridgeline Firm LLC</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
